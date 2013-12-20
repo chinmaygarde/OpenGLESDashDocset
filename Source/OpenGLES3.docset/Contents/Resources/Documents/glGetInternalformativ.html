@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glGetInternalformativ - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glGetInternalformativ"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glGetInternalformativ — retrieve information about implementation-dependent support for internal formats</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glGetInternalformativ</strong>(</code></td><td>GLenum <var class="pdparam">target</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">internalformat</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLsizei <var class="pdparam">bufSize</var>, </td></tr><tr><td> </td><td>GLint *<var class="pdparam">params</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>target</code></em></span></dt><dd><p>
+                    Indicates the usage of the internal format. <em class="parameter"><code>target</code></em> must be <code class="constant">GL_RENDERBUFFER</code>.
+                </p></dd><dt><span class="term"><em class="parameter"><code>internalformat</code></em></span></dt><dd><p>
+                    Specifies the internal format about which to retrieve information.
+                </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                    Specifies the type of information to query.
+                </p></dd><dt><span class="term"><em class="parameter"><code>bufSize</code></em></span></dt><dd><p>
+                    Specifies the maximum number of integers that may be written to <em class="parameter"><code>params</code></em> by the function.
+                </p></dd><dt><span class="term"><em class="parameter"><code>params</code></em></span></dt><dd><p>
+                    Specifies the address of a variable into which to write the retrieved information.
+                </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glGetInternalformativ</code> retrieves information about implementation-dependent support for
+            internal formats. <em class="parameter"><code>target</code></em> indicates the target with which the internal format will
+            be used and must be <code class="constant">GL_RENDERBUFFER</code>, corresponding to usage as a renderbuffer.
+        </p><p>
+            <em class="parameter"><code>internalformat</code></em> specifies the internal format about which to retrieve information and
+            must be a color-renderable, depth-renderable or stencil-renderable format.
+        </p><p>
+            The information retrieved will be written to memory addressed by the pointer specified in <em class="parameter"><code>params</code></em>. No
+            more than <em class="parameter"><code>bufSize</code></em> integers will be written to this memory.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_NUM_SAMPLE_COUNTS</code>, the number of sample counts that would be
+            returned by querying <code class="constant">GL_SAMPLES</code> will be returned in <em class="parameter"><code>params</code></em>.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_SAMPLES</code>, the sample counts supported for <em class="parameter"><code>internalformat</code></em>
+            and <em class="parameter"><code>target</code></em> are written into <em class="parameter"><code>params</code></em> in descending numeric order. Only positive values are returned.
+            Querying <code class="constant">GL_SAMPLES</code> with <em class="parameter"><code>bufSize</code></em> of one will return just the maximum supported number of
+            samples for this format.
+        </p></div><div class="refsect1"><a id="notes"></a><h2>Notes</h2><p>
+            Since multisampling is not supported for signed and unsigned integer internal
+                        formats, the value of <code class="constant">GL_NUM_SAMPLE_COUNTS</code> will be zero for such formats.
+                        If <em class="parameter"><code>internalformat</code></em> is <code class="constant">GL_RGBA16F</code>, <code class="constant">GL_R32F</code>,
+                        <code class="constant">GL_RG32F</code>, or <code class="constant">GL_RGBA32F</code>, the value of <code class="constant">GL_NUM_SAMPLE_COUNTS</code>
+                        may be zero, or else the maximum value in <code class="constant">GL_SAMPLES</code> may be less than the value of
+                        <code class="constant">GL_MAX_SAMPLES</code>.
+                        For every other accepted <em class="parameter"><code>internalformat</code></em>, the maximum value in <code class="constant">GL_SAMPLES</code> is guaranteed to be at least
+                        <code class="constant">GL_MAX_SAMPLES</code>.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>bufSize</code></em> is negative.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not <code class="constant">GL_SAMPLES</code> or <code class="constant">GL_NUM_SAMPLE_COUNTS</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>internalformat</code></em> is not color-, depth-, or stencil-renderable.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>target</code></em> is not <code class="constant">GL_RENDERBUFFER</code>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGet.html"><span class="citerefentry"><span class="refentrytitle">glGet</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2011-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>

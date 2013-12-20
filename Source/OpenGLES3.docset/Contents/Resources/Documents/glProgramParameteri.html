@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd">
+<?xml-stylesheet type="text/xsl" href="mathml.xsl"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:pref="http://www.w3.org/2002/Math/preference" pref:renderer="mathplayer-dl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="opengl-man.css" /><title>glProgramParameteri - OpenGL ES 3.0 Reference Pages</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /></head><body><div class="refentry"><a id="glProgramParameteri"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>glProgramParameteri — specify a parameter for a program object</p></div><div class="refsynopsisdiv"><h2>C Specification</h2><div class="funcsynopsis"><table border="0" class="funcprototype-table" summary="Function synopsis" style="cellspacing: 0; cellpadding: 0;"><tr><td><code class="funcdef">void <strong class="fsfunc">glProgramParameteri</strong>(</code></td><td>GLuint <var class="pdparam">program</var>, </td></tr><tr><td> </td><td>GLenum <var class="pdparam">pname</var>, </td></tr><tr><td> </td><td>GLint <var class="pdparam">value</var><code>)</code>;</td></tr></table><div class="funcprototype-spacer"> </div></div></div><div class="refsect1"><a id="parameters"></a><h2>Parameters</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term"><em class="parameter"><code>program</code></em></span></dt><dd><p>
+                Specifies the name of a program object whose parameter to modify.
+            </p></dd><dt><span class="term"><em class="parameter"><code>pname</code></em></span></dt><dd><p>
+                Specifies the name of the parameter to modify.
+            </p></dd><dt><span class="term"><em class="parameter"><code>value</code></em></span></dt><dd><p>
+                Specifies the new value of the parameter specified by <em class="parameter"><code>pname</code></em> for <em class="parameter"><code>program</code></em>.
+            </p></dd></dl></div></div><div class="refsect1"><a id="description"></a><h2>Description</h2><p>
+            <code class="function">glProgramParameteri</code> specifies a new value for the parameter nameed by
+            <em class="parameter"><code>pname</code></em> for the program object <em class="parameter"><code>program</code></em>.
+        </p><p>
+            If <em class="parameter"><code>pname</code></em> is <code class="constant">GL_PROGRAM_BINARY_RETRIEVABLE_HINT</code>,
+            <em class="parameter"><code>value</code></em> should be <code class="constant">GL_FALSE</code> or <code class="constant">GL_TRUE</code>
+            to indicate to the implementation the intention of the application to retrieve the program's
+            binary representation with <a class="citerefentry" href="glGetProgramBinary.html"><span class="citerefentry"><span class="refentrytitle">glGetProgramBinary</span></span></a>.
+            The implementation may use this information to store information that may be useful for a future
+            query of the program's binary. It is recommended to set <code class="constant">GL_PROGRAM_BINARY_RETRIEVABLE_HINT</code>
+            for the program to <code class="constant">GL_TRUE</code> before calling
+            <a class="citerefentry" href="glLinkProgram.html"><span class="citerefentry"><span class="refentrytitle">glLinkProgram</span></span></a>, and
+            using the program at run-time if the binary is to be retrieved later.
+        </p></div><div class="refsect1"><a id="errors"></a><h2>Errors</h2><p>
+            <code class="constant">GL_INVALID_OPERATION</code> is generated if <em class="parameter"><code>program</code></em> is not the
+            name of an existing program object.
+        </p><p>
+            <code class="constant">GL_INVALID_ENUM</code> is generated if <em class="parameter"><code>pname</code></em> is not
+                        <code class="constant">GL_PROGRAM_BINARY_RETRIEVABLE_HINT</code>.
+        </p><p>
+            <code class="constant">GL_INVALID_VALUE</code> is generated if <em class="parameter"><code>value</code></em> is not
+                        <code class="constant">GL_FALSE</code> or <code class="constant">GL_TRUE</code>.
+        </p></div><div class="refsect1"><a id="associatedgets"></a><h2>Associated Gets</h2><p>
+            <a class="citerefentry" href="glGetProgramiv.html"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>.
+        </p></div><div class="refsect1"><a id="seealso"></a><h2>See Also</h2><p>
+            <a class="citerefentry" href="glGetProgramiv.html"><span class="citerefentry"><span class="refentrytitle">glGetProgramiv</span></span></a>,
+            <a class="citerefentry" href="glGetProgramBinary.html"><span class="citerefentry"><span class="refentrytitle">glGetProgramBinary</span></span></a>,
+            <a class="citerefentry" href="glProgramBinary.html"><span class="citerefentry"><span class="refentrytitle">glProgramBinary</span></span></a>
+        </p></div><div class="refsect1"><a id="Copyright"></a><h2>Copyright</h2><p>
+            Copyright <span class="trademark"></span>© 2010-2013 Khronos Group.
+            This material may be distributed subject to the terms and conditions set forth in
+            the Open Publication License, v 1.0, 8 June 1999.
+            <a class="ulink" href="http://opencontent.org/openpub/" target="_top">http://opencontent.org/openpub/</a>.
+        </p></div></div></body></html>
