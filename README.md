@@ -1,7 +1,7 @@
 OpenGLES Dash DocSet
 ==================
 
-Dash Docset for OpenGL ES 1.1, ES 2 and ES 3
+Dash Docset for OpenGL ES 1.1, ES 2, ES 3 and EGL 1.4
 
 ![Dash Feeds](Info.png)
 
