@@ -21,3 +21,4 @@ build/
 xcuserdata
 
 *.moved-aside
+optimizedIndex.dsidx
